@@ -52,8 +52,6 @@ def test_multiple_instances_of_gratitude_class():
     assert gratitudes_2.format() == "Be grateful for: family"
     assert gratitudes_3.format() == "Be grateful for: home"
 
-    
-
 """
 test an empty string
 """
