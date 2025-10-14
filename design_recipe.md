@@ -6,11 +6,51 @@ Copy this into a `recipe.md` in your project and fill it out.
 
 _Put or write the user story here. Add any clarifying notes you might have._
 
+>As a user:
+estimate_reading_time{
+- So that I can manage my time
+- I want to see an estimate of reading time for a text, assuming that I can read 200 words a minute.
+}
+
+
+>As a user:
+- So that I can improve my grammar
+- I want to verify that a text starts with a capital letter and ends with a suitable sentence-ending punctuation mark.
+
+
 ## 2. Design the Function Signature
 
 _Include the name of the function, its parameters, return value, and side effects._
 
 ```python
+    def estimate_reading_time(text):
+"""
+    # Parameters: text(string) but will need some int calculation
+    maybe calculating time in seconds/min/hour * length of text
+    based on the size/length of text.
+
+    Return value: float that returns the estimated time based on the len of text
+
+    Side effects: negative numbers, strings
+"""
+    pass
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+def improve_grammar(text):
+"""Corrects a sentence start (with captial letter) 
+    and sentence end (with appropriate puncuation mark)
+    in a sentence.
+
+    Parameters: (text) - string passed into as a sentence (e.g "hello how are you doing")
+
+    Returns: a boolean reuturn True (if string[0] isupper() and string[-1] in ".?!" 
+            else return False ((e.g.["Hello, how are you doing?"]) => True
+
+    Side effects: Value error raised if different datatype is entered other than string
+                  Exception error raised if empty string is passed
+"""
+
 # EXAMPLE
 
 def extract_uppercase(mixed_words):
@@ -33,6 +73,65 @@ def extract_uppercase(mixed_words):
 _Make a list of examples of what the function will take and return._
 
 ```python
+
+"""
+Given a text of 200 words,
+It returns 1
+"""
+estimate_reading_time("200 words") => 1
+
+"""
+Given a text of 400 words,
+It returns 2
+"""
+estimate_reading_time("400 words") => 2
+
+"""
+Given a text of 500 words,
+It returns 2.5
+"""
+estimate_reading_time("500 words") => 2.5
+
+"""
+Given an empty string,
+It raises an error
+"""
+estimate_reading_time("") 
+=> Raises error: "Empty string cannot be estimated!"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+Given an uncapitalised or punctuated string of a single word,
+It returns False
+"""
+improve_grammar("hello") => [False]
+
+"""
+Given a string with a punctuation at the end,
+It returns True
+"""
+improve_grammar("how are you?") => [False]
+
+"""
+Given a string with capitalised at the start
+and punctuation at the end,
+It returns True
+"""
+improve_grammar("Hello world, how are you?") => [True]
+
+"""
+Given an incorrect datatype (int) entered,
+It returns a TypeError
+"""
+improve_grammar(123) => throws an error
+
+"""
+Given an empty string/value
+It returns an Exception error
+"""
+improve_grammar("") => throws an error
+
 # EXAMPLE
 
 """
